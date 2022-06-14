@@ -20,15 +20,20 @@ public class Ingrediente {
 
 	@NotBlank
 	private String descrizione;
+	
+	@NotNull
+    	@ManyToMany(mappedBy = "ingredienti",cascade = {CascadeType.REMOVE,CascadeType.MERGE})
+    	private List<Piatto> piatti;
 
 	public Ingrediente() {
-		
+		this.piatti = new ArrayList<>();
 	}
 	
 	public Ingrediente(String nome, String origine, String descrizione) {
 		this.nome = nome;
 		this.origine = origine;
 		this.descrizione = descrizione;
+		this.piatti = new ArrayList<>();
 	}	
 
 
@@ -62,6 +67,14 @@ public class Ingrediente {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	
+	public List<Piatto> getPiatti() {
+		return piatti;
+	}
+
+	public void setPiatti(List<Piatto> piatti) {
+		this.piatti = piatti;
 	}
 
 }
