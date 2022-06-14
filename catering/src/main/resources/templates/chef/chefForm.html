@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>inserimento chef</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-chef">
+	<section class="header-chef">
+		<nav>
+			<img src="../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+
+	<div class="text-box-form">	
+	<h4>Aggiungi Chef</h4>
+	<form th:action="@{/admin/chef}" method="POST" th:object="${chef}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
+				globale</p>
+		</div>
+		<div>
+			Nome: <input type="text" th:field="*{nome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		</div>
+		<div>
+			Cognome: <input type="text" th:field="*{cognome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>
+
+		</div>
+		<div>
+			Nazionalita: <input type="text" th:field="*{nazionalita}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+			</div>
+
+		</div>
+		<div>
+			<button type="submit" />
+			Conferma
+		</div>
+	</form>
+	</div>
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

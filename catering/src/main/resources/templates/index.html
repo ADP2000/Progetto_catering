@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Catering</title>
+  <link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class = "header-body-home">
+	
+	
+  
+		<nav>
+			<img src="img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/user/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/user/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/login}"> LOGIN</a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+  
+  	<div class= "text-box-h">
+  		<div class= "text-box-home">
+    	<h4> Benvenuto su Catering Society </h4>
+    	<div>
+    		Ciao sono Antonio Della Porta e ti do il benvenuto sul sito di Catering Society! 
+    		Se stai cercando un catering 
+        	con un gran numero di buffet ti trovi nel posto giusto.<br> Su questo sito 
+        	hai la possibilità di vedere un gran numero di buffet proposti dai nostri migliori chef.
+        	Ciascun buffet contiene piatti di ogni tipo, dagli antipasti ai primi, 
+        	passando per secondi (carne e pesce) e dolci classici, tipici della tradizione italiana, 
+        	oppure dolci che potrai trovare solo qui da noi.<br>
+        	Oltretutto per ciascun piatto avrai la possibilità di visualizzare
+         	gli ingredienti di cui questo è composto.
+    
+   	 	</div>
+    	</div>
+    	
+    	
+    	<div class= "text-box-home-chef">
+    	<h1> Gli chef </h1>
+    	<div>
+    		I nostri chef sono stati scelti in base a delle selezioni effetuate periodicamente.
+    		Loro sono i protagonisti dei <br>nostri piatti più famosi e propongono ciascuno diversi buffet.
+    		<br><br>
+    		Per vedere l'elenco degli chef di cui disponiamo clicca il pulsante sotto.
+   	 	</div>
+   	 	<div class="elenco-immagini">
+    		<img  src="https://media-assets.lacucinaitaliana.it/photos/61fac29b237f91c36fca864c/master/w_960,h_639,c_limit/b0d4e3e7-6c15-477e-9adc-951752624a87.jpg">
+    		<img  src="https://forbes.it/wp-content/uploads/2022/05/francesco-e-giuseppe-derrico-oki.jpg">
+    		<img  src="https://media.smartbox.com/pim/10000020733461899256998.jpg">
+    	</div>
+    		<a th:href="@{/user/chefs}"> <button>Visualizza chef</button></a> 
+    	</div>
+    	
+    	<div class= "text-box-home-chef">
+    	<h1> I buffet </h1>
+    	<div>
+    		In questa sezione puoi vedere alcuni dei buffet proposti dai nostri chef.
+    		Per ciascun buffet potrai visualizzare i piatti che lo compongono e gli ingredienti 
+    		usati per ciscun piatto.<br><br>
+    		Per vedere l'elenco dei buffet proposti dai nostri chef clicca il pulsante sotto.
+   	 	</div>
+   	 	<div class="elenco-immagini">
+    		<img  src="https://www.yegam.it/wp-content/uploads/2019/06/Allestimento-Buffet-affidati-ai-leader-del-settore.jpg">
+    		<img  src="https://media-cdn.tripadvisor.com/media/photo-s/03/05/02/79/hibachi-buffet.jpg">
+    		<img  src="https://image.freepik.com/foto-gratuito/supporti-a-strati-con-varieta-di-carne-affettata_8353-9834.jpg">
+    	</div>
+    		<a th:href="@{/user/buffets}"> <button>Visualizza buffet</button></a> 
+    	</div>
+ 	</div>
+  
+  	<footer class="home">
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

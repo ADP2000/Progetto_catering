@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Amministratore</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+
+<body class="header-body-admin">
+
+	<section class="header">
+		<nav>
+			<img src="../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT </a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN </a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+
+		<div class="text-box">
+			<div class="elenco-pagina">
+				<h4>Sezione Amministratore</h4>
+				<p>
+				In questa sezione potrai visualizzare e gestire tutti i dati relativi 
+				agli chef, i buffet proposti dagli chef e i piatti che ciascuno di essi offre.<br></br>
+				Inoltre per ciascun piatto proposto in un buffet potrai visualizzare gli ingredienti
+				e aggiungerne altri, se necessario.  
+				</p> 
+			</div>
+		</div>
+		
+
+	</section>
+	
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+	
+	
+</body>
+</html>

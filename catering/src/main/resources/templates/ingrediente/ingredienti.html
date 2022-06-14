@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Ingredienti</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-ingrediente">
+	<section class="header-ingrediente">
+		<nav>
+			<img src="../../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+	<div class="text-box-ingrediente">
+	<div class= "elenco-ingrediente">
+		<h4>Elenco Ingredienti:</h4>
+		<ul>
+			<li th:each="ingrediente : ${ingredienti}">
+				<div class="titolo-ing">
+					<strong><span 
+						th:text="${ingrediente.nome}">
+						ingrediente
+					</span> </strong> 
+				</div>
+				<div>
+					<strong><span class= "ing">Provenienza: </span></strong>
+					<span
+						th:text=" ' ' + ${ingrediente.origine}">
+						origine
+					</span> 
+				</div>
+				<div>
+					<strong><span class= "ing">Descrizione: </span></strong>
+					<span th:text="' ' + ${ingrediente.descrizione}"></span>
+				</div>
+			<form th:action="@{'/admin/cancellaIngrediente' + '/' + ${ingrediente.id}}" 
+				method="POST">
+				<button> Cancella </button>
+			</form>  
+			<a th:href="@{'/admin/modificaIngrediente' + '/' + ${ingrediente.id}}">
+				<button> Modifica</button>
+			</a> 
+			</li>
+		</ul>
+		<div>
+			<a th:href="@{/admin/ingredienteForm}" >Aggiungi Ingrediente</a>
+		</div>	
+	</div>
+	</div>
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+	
+</body>
+</html>

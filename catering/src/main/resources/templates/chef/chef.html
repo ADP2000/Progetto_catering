@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Dettagli Chef</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-chef">
+	<section class="header-chef">
+		<nav>
+			<img src="../../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="text-box-chef">
+		<h4>Chef</h4>
+			<div>
+			<strong>
+			<span th:text="${chef.nome}">Paolo</span> 
+			<span th:text="${chef.cognome}">Rossi</span> 
+			<span th:text="'( ' + ${chef.nazionalita} + ' )'">italia</span>
+			</strong>
+			<div>
+				<strong>Elenco Buffet:</strong>
+			</div>
+			<ul>
+				<li th:each="buffet : ${buffets}"><strong><a
+						th:href="@{'/admin/chef' + '/buffet' + '/' + ${buffet.id}}"
+						th:text="${buffet.nome}"> Nome buffet</a> </strong> 
+				<form th:action="@{'/admin/chef' + '/cancellaBuffet' + '/' + ${buffet.id}}" 
+							method="POST"><button> Cancella </button>
+				</form>  
+				</li>
+			</ul>		
+			</div>
+		</div>
+	</section>
+	<footer>
+	Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

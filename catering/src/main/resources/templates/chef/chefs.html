@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Chefs</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-chef">
+	<div>
+		<section class="header-chef">
+		<nav>
+			<img src="../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="text-box">
+		<div class="elenco">
+		<h4>Elenco Chef:</h4>
+		<ul>
+			<li th:each="chef : ${chefs}">
+			<form th:action="@{'/admin/cancellaChef' + '/' + ${chef.id}}" 
+				method="POST">
+			<a	th:href="@{'/admin/chef' + '/' + ${chef.id}}"
+				th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a> 	
+				<button> Cancella </button>
+			</form>
+			<a th:href="@{'/admin/modificaChef' + '/' + ${chef.id}}">
+					<button> Modifica</button>
+			</a>  
+			</li>
+		</ul>
+			<div>
+				<a th:href="@{/admin/chefForm}" >Aggiungi nuovo Chef</a>
+			</div>
+		</div>
+		</div>
+	</section>
+	</div>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+<title>Register Successful</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-admin">
+	<section class="header">
+	<nav>
+		<img src="../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/user/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/user/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/login}"> LOGIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+	
+	<div class="text-box-form-login">
+		<h4>Congratulazioni ti sei registrato con successo!</h4>
+		<span>
+			Adesso potrai accedere alla sezione amministratore effettuando il login con 
+			le tue credenziali.
+		</span>
+	</div>
+	</section>
+    <footer >
+    	Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+    </footer>
+</body>
+</html>

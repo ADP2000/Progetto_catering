@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Buffets</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-buffet">
+	<section class="header-buffet">
+		<nav>
+			<img src="../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT </a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN </a></strong></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="text-box">
+		<div class="elenco-buffet">
+		<h4>Elenco Buffet:</h4>
+		<ul>
+			<li th:each="buffet : ${buffets}">
+				<form th:action="@{'/admin/cancellaBuffet' + '/' + ${buffet.id}}" 
+						method="POST">
+				<strong><a
+					th:href="@{'/admin/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">
+					Nome buffet</a>
+					<span> proposto dallo chef </span> 
+					<a th:href = "@{'/admin/buffet' + '/chef' + '/' + ${buffet.chef.id}}"
+						th:text ="${buffet.chef.nome} + ' ' + ${buffet.chef.cognome}">
+					</a>
+					
+					</strong>
+					<button> Cancella </button>
+				</form>  
+				<a th:href="@{'/admin/modificaBuffet' + '/' + ${buffet.id}}">
+					<button> Modifica</button>
+				</a>  
+			</li>
+		</ul>
+		<div>
+			<a th:href="@{/admin/buffetForm}" >Aggiungi nuovo Buffet</a>
+		</div>
+		</div>
+	</div>
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

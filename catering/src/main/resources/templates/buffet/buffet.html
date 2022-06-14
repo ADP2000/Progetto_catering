@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Dettagli Buffet</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-buffet">
+	<section class="header-buffet">
+		<nav>
+			<img src="../../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT </a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN </a></strong></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="text-box-buffet">
+		<h4>Descrizione Buffet</h4>
+		
+			<strong><span th:text="${buffet.nome}">nome</span>
+			<span> proposto dallo chef </span>
+			<span th:text="${buffet.chef.nome} + ' ' + ${buffet.chef.cognome} + ': '"></span></strong> 
+			<div>
+				<span class="descrizione" th:text="${buffet.descrizione}">descrizione</span>
+			</div>
+			<div>
+				<strong>Elenco dei piatti:</strong>
+			</div>
+			<ul>
+				<li th:each="piatto : ${piatti}">
+				<form th:action="@{'/admin/buffet' + '/cancellaPiatto' + '/' + ${piatto.id}}" 
+					method="POST">
+					<strong><span
+						th:text="${piatto.nome} + ' ' + ${piatto.descrizione}"> 
+						Nome piatto
+					</span> </strong>
+					<button> Cancella </button>
+				</form>  
+				<a th:href="@{'/admin/piatto' + '/buffet' + '/' + ${piatto.id}}"
+							text=" Visualizza gli ingredienti"> 
+							<button>Visualizza gli ingredienti</button> 
+					</a>
+				</li>
+			</ul>	
+
+		</div>
+		
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>

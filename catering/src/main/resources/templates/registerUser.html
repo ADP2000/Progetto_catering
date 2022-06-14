@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register Form</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-admin">
+
+	<section class="header">
+	<nav>
+		<img src="../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/user/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/user/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/login}"> LOGIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+	<div class="text-box-form-login">	
+    	<h4>Registrazione</h4>
+	<form th:action="@{/register}" method="POST">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" placeholder="username" required
+                       th:field="${credentials.username}"/></td>
+            <td th:if="${#fields.hasErrors('credentials.username')}"
+                th:errors="${credentials.username}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" placeholder="password" required
+                       th:field="${credentials.password}"/></td>
+            <td th:if="${#fields.hasErrors('credentials.password')}"
+                th:errors="${credentials.password}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td><input type="text" placeholder="nome" required
+                       th:field="${user.nome}"/></td>
+            <td th:if="${#fields.hasErrors('user.nome')}"
+                th:errors="${user.nome}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>Cognome</td>
+            <td><input type="text" placeholder="cognome" required
+                       th:field="${user.cognome}"/></td>
+            <td th:if="${#fields.hasErrors('user.cognome')}"
+                th:errors="${user.cognome}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>
+                <button class="bottone" type="submit">Registra</button>
+            </td>
+        </tr>
+    </table>
+	</form>
+	</div>
+	</section>
+    <footer>
+    	Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+    </footer>
+</body>
+</html>

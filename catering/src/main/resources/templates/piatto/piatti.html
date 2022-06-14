@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Piatti</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-piatto">
+	<section class="header-piatto">
+		<nav>
+			<img src="../../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="text-box">
+		<div class="elenco-piatto">		
+		<h4>Elenco Piatti:</h4>
+		<ul>
+			<li th:each="piatto : ${piatti}">
+				<form th:action="@{'/admin/cancellaPiatto' + '/' + ${piatto.id}}" 
+				method="POST">
+				<strong><span
+					th:text="${piatto.nome} + ' ' + ${piatto.descrizione}">
+					piatto
+				</span> </strong> 
+					<button> Cancella </button>
+				</form>  
+				<a th:href="@{'/admin/modificaPiatto' + '/' + ${piatto.id}}">
+					<button> Modifica</button>
+				</a>  
+				<a th:href="@{'/admin/ingredientiPerPiatto' + '/' + ${piatto.id}}">
+				<button>Visualizza ingredienti </button> </a>
+			</li>
+		</ul>
+		<div>
+			<a th:href="@{/admin/piattoForm}" >Aggiungi Piatto</a>
+		</div>
+
+	</div>
+	</div>
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+	
+</body>
+</html>

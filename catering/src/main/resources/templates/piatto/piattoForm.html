@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>inserimento Piatto</title>
+<link rel="stylesheet" href = "/css/catering.css"/>
+</head>
+<body class="header-body-piatto">
+	<section class="header-piatto">
+		<nav>
+			<img src="../img/logo.png">
+			<h1 class="title">Catering Society</h1>
+			<div class="nav-links">
+				<ul>
+					<li><strong><a th:href="@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/chefs}">CHEFS </a></strong></li>
+					<li><strong><a th:href="@{/admin/buffets}"> BUFFETS </a></strong></li>
+					<li><strong><a th:href="@{/admin/ingredienti}"> INGREDIENTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/piatti}"> PIATTI </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}"> ADMIN</a></strong></li>
+				</ul>
+			</div>
+		</nav>
+	<div class="text-box-form-piatto">
+	<h4>Inserisci piatto</h4>
+	<form th:action="@{/admin/piatto}" method="POST" th:object="${piatto}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
+				globale</p>
+		</div>
+		<div>
+			Nome: <input type="text" th:field="*{nome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		</div>
+
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}" />
+			<div>
+				<span th:if="${#fields.hasErrors('descrizione')}"
+					th:errors="*{descrizione}"></span>
+			</div>
+		</div>
+		
+		<div>
+						Ingredienti:
+						<th:block th:each="ingrediente : ${ingredienti} ">
+							<input class="checkbox" type="checkbox" th:field="*{ingredienti}"
+								th:text="${ingrediente.nome}" th:value="${ingrediente.id}">
+						</th:block>
+						<div>
+							<span th:if="${#fields.hasErrors('ingredienti')}"
+								th:errors="*{ingredienti}"></span>
+						</div>
+					</div>
+
+		<div>
+		
+		<div>
+			Buffet: <select th:field="*{buffet}">
+				<th:block th:each="buffet : ${buffets} ">
+					<option th:text="${buffet.nome} + ' proposto dallo chef ' + ${buffet.chef.nome} + ' ' + ${buffet.chef.cognome}"
+						th:value="${buffet.id}">
+				</th:block>
+			</select>
+			<div>
+				<span th:if="${#fields.hasErrors('buffet')}" th:errors="*{buffet}"></span>
+			</div>
+		</div>
+		
+			<button type="submit" />
+			Conferma
+		</div>
+	</form>
+	</div>
+	</section>
+	<footer>
+		Catering Society | Via ADP, 10 - 00143 Roma (RM) ITALIA |  
+		<br> <a href="mailto:ant.dellaporta1@stud.uniroma3.it">ant.dellaporta1@stud.uniroma3.it</a>
+		| <span itemprop="telephone">+39 321 432 4578</span>
+		<br>
+	</footer>
+</body>
+</html>
