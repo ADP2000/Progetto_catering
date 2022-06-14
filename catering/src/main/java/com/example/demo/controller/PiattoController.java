@@ -62,7 +62,7 @@ public class PiattoController {
 			model.addAttribute("piatti", piatti);
 			return "piatto/piatti.html";
 		}
-		return "piatto/piattoForm.html";
+		return "redirect:/admin/piattoForm";
 	}
 
 	@GetMapping("/admin/piattoForm")
