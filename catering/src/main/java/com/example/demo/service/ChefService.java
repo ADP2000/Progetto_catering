@@ -22,6 +22,7 @@ public class ChefService {
 		chefRepository.save(chef);
 	}
 	
+	@Transactional
 	public void remove(Long id) {
 		chefRepository.deleteById(id);
 	}
