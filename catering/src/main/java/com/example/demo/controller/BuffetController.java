@@ -68,6 +68,8 @@ public class BuffetController {
 			model.addAttribute("buffets", buffetService.findAll());
 			return "buffet/buffets.html";
 		}
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs", chefs);
 		return "buffet/buffetForm.html";
 	}
 
