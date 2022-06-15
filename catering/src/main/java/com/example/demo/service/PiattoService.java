@@ -20,6 +20,7 @@ public class PiattoService {
 		this.piattoRepository.save(piatto);
 	}
 	
+	@Transactional
 	public void remove(Long id) {
 		piattoRepository.deleteById(id);
 	}
