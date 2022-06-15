@@ -15,6 +15,7 @@ public class IngredienteService {
 	@Autowired
 	private IngredienteRepository ingredienteRepository;
 	
+	@Transactional
 	public void save(Ingrediente ingrediente) {
 		this.ingredienteRepository.save(ingrediente);
 	}
