@@ -20,6 +20,7 @@ public class IngredienteService {
 		this.ingredienteRepository.save(ingrediente);
 	}
 	
+	@Transactional
 	public void remove(Long id) {
 		ingredienteRepository.deleteById(id);
 	}
