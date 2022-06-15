@@ -30,7 +30,7 @@ public class Buffet {
 	@ManyToOne
 	private Chef chef;
 
-	@OneToMany(mappedBy = "buffet", fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.MERGE} )   
+	@OneToMany(mappedBy = "buffet", cascade = {CascadeType.REMOVE, CascadeType.MERGE} )   
 	private List<Piatto> piatti;
 
 	public Buffet() {
