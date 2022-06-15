@@ -62,7 +62,11 @@ public class PiattoController {
 			model.addAttribute("piatti", piatti);
 			return "piatto/piatti.html";
 		}
-		return "redirect:/admin/piattoForm";
+		List<Ingrediente> ingredienti = this.ingredienteService.findAll();
+		model.addAttribute("ingredienti", ingredienti);
+		List<Buffet> buffets = buffetService.findAll();
+		model.addAttribute("buffets", buffets);
+		return "piatto/piattoForm.html";
 	}
 
 	@GetMapping("/admin/piattoForm")
