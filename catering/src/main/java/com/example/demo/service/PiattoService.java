@@ -15,6 +15,7 @@ public class PiattoService {
 	@Autowired
 	private PiattoRepository piattoRepository;
 	
+	@Transactional
 	public void save(Piatto piatto) {
 		this.piattoRepository.save(piatto);
 	}
