@@ -19,11 +19,14 @@ public class Buffet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
+	@NotBlank
 	private String nome;
-
+	
+	@NotBlank
 	private String descrizione;
 
+	@NotNull
 	@ManyToOne
 	private Chef chef;
 
