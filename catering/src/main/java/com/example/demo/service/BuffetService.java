@@ -20,6 +20,7 @@ public class BuffetService {
 		this.buffetRepository.save(buffet);
 	}
 	
+	@Transactional
 	public void remove(Long id) {
 		buffetRepository.deleteById(id);
 	}
