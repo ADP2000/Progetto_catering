@@ -15,6 +15,7 @@ public class BuffetService {
 	@Autowired
 	private BuffetRepository buffetRepository;
 	
+	@Transactional
 	public void save(Buffet buffet) {
 		this.buffetRepository.save(buffet);
 	}
