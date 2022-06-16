@@ -24,6 +24,11 @@ public class PiattoValidator implements Validator {
 		if(ps.alreadyExists((Piatto) target)) {
 			errors.reject("piatto.duplicato");
 		}
+		
+		Piatto p = (Piatto) target;
+		if(p.getIngredienti().isEmpty()) {
+			errors.reject("piatto.ingredientiNonInseriti");
+		}
 	}
 
 }
